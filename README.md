@@ -87,7 +87,7 @@ setup(
 
 ## Installing a plugin
 
-An end-user can install a plugin directly from its repository or from
+An end user can install a plugin directly from its repository or from
 PyPI (if available).
 
 To use a plugin in your code, install it alongside itwinai:
