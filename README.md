@@ -112,3 +112,26 @@ git clone git@github.com:USER/REPOSITORY.git && cd REPOSITORY
 # install the plugin from source in editable mode.
 pip install --editable . 
 ```
+
+### Beware of installations in editable mode
+
+When a package is installed in editable mode, it creates a symlink to the
+source directory, which works differently from how non-editable packages are
+installed. Namespace packages can behave inconsistently when some parts are
+installed in editable mode and others are not.
+
+To check whether a package was installed in editable mode you can use
+`pip show PACKAGE_NAME`. Editable packages show an *"Editable"* path
+in the output of the command.
+
+> [!WARNING]
+> When itwinai, the core library, is installed in editable mode **also**
+> **the plugin must be installed in editable mode**. Otherwise, the plugin
+> may not be visible when imported.
+
+From empirical experience, the following installation configurations
+*seem* to be working:
+
+- itwinai: editable, plugin: editable
+- itwinai: non-editable, plugin: non-editable
+- itwinai: non-editable, plugin: editable
