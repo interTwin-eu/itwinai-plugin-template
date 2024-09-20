@@ -13,3 +13,9 @@ dependencies = ["itwinai"]
 # Declare this package as part of the `itwinai.plugins` namespace
 where = ["src"]
 include = ["itwinai.plugins.my_awesome_plugin"]
+
+# itwinai plugin configuration
+# Project basic metadata can be inferred from the top level "project" table
+[tool.itwinai]
+container-image = ""
+cwl-file = ""
