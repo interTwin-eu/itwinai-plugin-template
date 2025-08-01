@@ -1,26 +1,52 @@
----
-name: Unit and integration tests
+name: Testing with pytest
 
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
 
 jobs:
-  test-itwinai:
-    name: Test itwinai with pytest
+  test-torch:
+    name: Testing with pytest
     runs-on: ubuntu-latest
     steps:
+
+      # Uncomment this only if you run out of disk space!
+      # - name: Maximize Disk Space
+      #   uses: easimon/maximize-build-space@v10
+      #   with:
+      #     # Reserve space on root for docker/dagger cache
+      #     build-mount-path: /docker
+      #     root-reserve-mb: 2048
+      #     overprovision-lvm: false
+      #     swap-size-mb: 4096
+      #     remove-dotnet: true
+      #     remove-android: true
+      #     remove-haskell: true
+      #     remove-codeql: true
+
       - uses: actions/checkout@v4
 
-      - name: Install plugin dependencies
-        shell: bash -l {0}
+      - name: Move Docker directory
+        shell: bash
         run: |
-          python -m venv .venv &&
-          source .venv/bin/activate &&
-          .venv/bin/pip install .
+          sudo mv /var/lib/docker /docker/ &&
+          sudo ln -s /docker/docker /var/lib/docker &&
+          sudo systemctl restart docker
 
-      - name: Run tests with pytest
-        shell: bash -l {0}
-        run: .venv/bin/pytest -v tests/
+      # Run tests with pytest in a container
+      - name: Run Integration Test (development pipeline)
+        uses: dagger/dagger-for-github@v7
+        with:
+          workdir: ci
+          verb: call
+          module: itwinai
+          args: >-
+            build-container
+            --context ..
+            --dockerfile ../Dockerfile
+            test-local
+            --cmd "pytest,-v,--disable-warnings,-n,logical,/app/tests/,--dist,loadfile"
+            logs
+          # Add a Dagger Cloud token here to have the logs stored also on Dagger Cloud
+          # cloud-token: ${{ secrets.DAGGER_CLOUD_TOKEN }}
+          version: latest

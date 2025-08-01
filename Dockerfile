@@ -9,8 +9,7 @@ WORKDIR /app
 RUN rm -rf tests src pyptoject.toml
 
 # Copy application dependencies
-COPY pyproject.toml pyproject.toml
-COPY src src
+COPY pyproject.toml src tests /app/
 
 # Install dependencies
 RUN pip install --no-cache-dir .
