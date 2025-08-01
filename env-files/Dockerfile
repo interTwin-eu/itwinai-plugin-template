@@ -9,10 +9,14 @@ WORKDIR /app
 RUN rm -rf tests src pyptoject.toml
 
 # Copy application dependencies
-COPY pyproject.toml src tests LICENSE README.md /app/
+COPY pyproject.toml pyproject.toml
+COPY src src
 
 # Install dependencies
 RUN pip install --no-cache-dir .
+
+# Copy tests
+COPY tests tests
 
 # Copy your scripts
 COPY main.py main.py
