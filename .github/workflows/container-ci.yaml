@@ -52,7 +52,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build and Test with Custom Action
-        uses: interTwin-eu/itwinai/.github/actions/build-container@main
+        # TODO: make this point to the main branch
+        uses: interTwin-eu/itwinai/.github/actions/build-container@disable-singularity-conversion
         with:
           # Find all the inputs here: https://raw.githubusercontent.com/interTwin-eu/itwinai/refs/heads/main/.github/actions/build-container/action.yml
 
