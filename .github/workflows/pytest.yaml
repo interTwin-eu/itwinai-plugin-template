@@ -4,9 +4,12 @@ on:
   pull_request:
     branches: [main]
 
+  push:
+    branches: [main]
+
 jobs:
-  test-torch:
-    name: Testing with pytest
+  test-itwinai-plugin:
+    name: Testing itwinai plugin with pytest
     runs-on: ubuntu-latest
     steps:
 
