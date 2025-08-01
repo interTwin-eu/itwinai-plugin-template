@@ -67,6 +67,7 @@ jobs:
           skip_singularity: ${{ matrix.config.skip_singularity }}
           docker_registry: ${{ matrix.config.docker_registry }}
           singularity_registry: ${{ matrix.config.singularity_registry }}
+          dagger_itwinai_module: itwinai
           release: ${{ github.event_name == 'release' && github.event.action == 'created' && 'true' || 'false' }}
           
           # NOTE: remember to set these secrets
