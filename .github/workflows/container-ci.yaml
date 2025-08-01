@@ -32,7 +32,7 @@ jobs:
 
           - base_img_name: "ghcr.io/intertwin-eu/itwinai:torch-slim-latest"
             img_name: "my-awesome-plugin"
-            dockerfile: "../Dockerfile"
+            dockerfile: "../env-files/Dockerfile"
             nickname: "torch"
             tag_template: "@{itwinai_version}-torch@{framework_version}-@{os_version}"
             skip_hpc: true
@@ -41,7 +41,7 @@ jobs:
             # Uncomment this to build container for jupyterlab
         #   - base_img_name: "ghcr.io/intertwin-eu/itwinai:jlab-slim-latest"
         #     img_name: "my-awesome-plugin"
-        #     dockerfile: "../jupyter.Dockerfile"
+        #     dockerfile: "../env-files/jupyter.Dockerfile"
         #     nickname: "jlab"
         #     tag_template: "jlab-@{itwinai_version}-torch@{framework_version}-@{os_version}"
         #     skip_hpc: true

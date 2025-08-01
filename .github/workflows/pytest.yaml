@@ -25,7 +25,8 @@ jobs:
       #     remove-codeql: true
 
       - uses: actions/checkout@v4
-
+      
+      #  ALSO uncomment this only if you run out of disk space!
       # - name: Move Docker directory
       #   shell: bash
       #   run: |
@@ -43,7 +44,7 @@ jobs:
           args: >-
             build-container
             --context ..
-            --dockerfile ../Dockerfile
+            --dockerfile ../env-files/Dockerfile
             test-local
             --cmd "pytest,-v,--disable-warnings,-n,logical,/app/tests/,--dist,loadfile"
             logs

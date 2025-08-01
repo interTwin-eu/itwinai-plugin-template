@@ -1,11 +1,11 @@
 {
   "name": "ci",
-  "engineVersion": "v0.18.12",
+  "engineVersion": "v0.18.14",
   "dependencies": [
     {
       "name": "itwinai",
-      "source": "github.com/interTwin-eu/itwinai/ci@1af75de2d2d3bf5b20ba57b0f074254bddc374fb",
-      "pin": "1af75de2d2d3bf5b20ba57b0f074254bddc374fb"
+      "source": "github.com/interTwin-eu/itwinai/ci@66e851b31f2ac9aa3c62cad260a4c40bd1730c54",
+      "pin": "66e851b31f2ac9aa3c62cad260a4c40bd1730c54"
     }
   ]
 }
