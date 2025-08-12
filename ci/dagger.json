@@ -4,8 +4,8 @@
   "dependencies": [
     {
       "name": "itwinai",
-      "source": "github.com/interTwin-eu/itwinai/ci@66e851b31f2ac9aa3c62cad260a4c40bd1730c54",
-      "pin": "66e851b31f2ac9aa3c62cad260a4c40bd1730c54"
+      "source": "github.com/interTwin-eu/itwinai/ci@59621d419b381b6b6fe46ccec4dd9eb05b335ff5",
+      "pin": "59621d419b381b6b6fe46ccec4dd9eb05b335ff5"
     }
   ]
 }
