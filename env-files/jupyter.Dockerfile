@@ -8,6 +8,9 @@ FROM ghcr.io/intertwin-eu/itwinai:jlab-slim-latest
 # Set working directory
 WORKDIR "$HOME/app"
 
+# Remove itwinai data under /app
+RUN rm -rf tests src pyptoject.toml
+
 # Copy application dependencies.
 # Remember that you are not root in this container, so you need to
 # propagate the correct rights when copying files.
