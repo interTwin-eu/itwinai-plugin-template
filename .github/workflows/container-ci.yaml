@@ -11,7 +11,7 @@ name: Container CI
 
 on:
   push:
-    # branches: [main]
+    branches: [main]
 
   # If not triggered on push, but on PR, the commit hash is a bit weird
   # pull_request:
@@ -41,7 +41,6 @@ jobs:
             singularity_registry: "''"
             build_arm: false
             
-            # Uncomment this to build container for jupyterlab
           - base_img_name: "ghcr.io/intertwin-eu/itwinai:jlab-slim-latest"
             img_name: "my-awesome-plugin"
             dockerfile: "../env-files/jupyter.Dockerfile"
