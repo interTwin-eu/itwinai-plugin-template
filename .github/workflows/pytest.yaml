@@ -27,7 +27,7 @@ jobs:
       #     remove-haskell: true
       #     remove-codeql: true
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       
       #  ALSO uncomment this only if you run out of disk space!
       # - name: Move Docker directory
