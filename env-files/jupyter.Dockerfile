@@ -17,6 +17,9 @@ COPY  --chown=${NB_UID} src src
 # Install dependencies
 RUN pip install --no-cache-dir .
 
+# Copy tests
+COPY tests tests
+
 # Copy your scripts
 COPY  --chown=${NB_UID} main.py main.py
 
